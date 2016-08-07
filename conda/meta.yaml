@@ -1,0 +1,36 @@
+{% set version="3.2" %}
+
+package:
+  name: glfw3
+  version: {{ version }}
+
+source:
+  fn: glfw-{{ version }}.tar.gz
+  url: https://github.com/glfw/glfw/archive/{{ version }}.tar.gz
+  sha256: cb3aab46757981a39ae108e5207a1ecc4378e68949433a2b040ce2e17d8f6aa6
+
+build:
+  number: 0
+  features:
+    - vc9     # [win and py27]
+    - vc10    # [win and py34]
+    - vc14    # [win and py35]
+
+requirements:
+  build:
+    - cmake
+    - python      # [win]
+    - msinttypes  # [win and not py35]
+
+test:
+  requires:
+    - python                             # [win]
+
+  commands:
+    - test -f $PREFIX/lib/libglfw.dylib                      # [osx]
+    - test -f $PREFIX/lib/libglfw.so                         # [linux]
+    - if not exist %PREFIX%\\Library\\lib\\glfw3.dll exit 1  # [win]
+
+about:
+  home: http://www.glfw.org/
+  license: zlib/libpng
