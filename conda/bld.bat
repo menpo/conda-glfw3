@@ -1,9 +1,5 @@
 @echo on
 
-if "%PY_VER%" == "2.7" (
-    call "%LOCALAPPDATA%\Programs\Common\Microsoft\Visual C++ for Python\9.0\vcvarsall.bat"
-)
-
 mkdir build
 cd build
 
