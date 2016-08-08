@@ -1,0 +1,11 @@
+--- src/cocoa_init.m
++++ src/cocoa_init.m
+@@ -362,6 +362,8 @@
+             removeObserver:_glfw.ns.listener
+                       name:(__bridge NSString*)kTISNotifySelectedKeyboardInputSourceChanged
+                     object:nil];
++        [[NSDistributedNotificationCenter defaultCenter]
++            removeObserver:_glfw.ns.listener];
+         [_glfw.ns.listener release];
+         _glfw.ns.listener = nil;
+     }

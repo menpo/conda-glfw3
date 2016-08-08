@@ -9,6 +9,9 @@ source:
   url: https://github.com/glfw/glfw/archive/{{ version }}.tar.gz
   sha256: cb3aab46757981a39ae108e5207a1ecc4378e68949433a2b040ce2e17d8f6aa6
 
+  patches:
+    - osx_remove_observer.patch  # [osx]
+
 build:
   number: 0
   features:
