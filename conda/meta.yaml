@@ -1,4 +1,4 @@
-{% set version="3.2" %}
+{% set version="3.2.1" %}
 
 package:
   name: glfw3
@@ -7,13 +7,10 @@ package:
 source:
   fn: glfw-{{ version }}.tar.gz
   url: https://github.com/glfw/glfw/archive/{{ version }}.tar.gz
-  sha256: cb3aab46757981a39ae108e5207a1ecc4378e68949433a2b040ce2e17d8f6aa6
-
-  patches:
-    - osx_remove_observer.patch  # [osx]
+  sha256: e10f0de1384d75e6fc210c53e91843f6110d6c4f3afbfb588130713c2f9d8fe8
 
 build:
-  number: 1
+  number: 0
   features:
     - vc9     # [win and py27]
     - vc10    # [win and py34]
